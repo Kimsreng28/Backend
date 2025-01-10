@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "sass": "^1.83.1",
+    "scss": "^0.2.4"
+  }
+}

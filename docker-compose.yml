@@ -4,6 +4,11 @@ services:
     image: php:8.2-fpm
     container_name: laravel_app
     working_dir: /var/www
+    command: >
+      sh -c "
+      docker-php-ext-install pdo pdo_mysql &&
+      php-fpm
+      "
     volumes:
       - ./laravel1:/var/www
       - ./php.ini:/usr/local/etc/php/php.ini
