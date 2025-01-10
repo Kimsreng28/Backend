@@ -1,36 +1,21 @@
 <?php
 
 namespace App\Models;
-use Illuminate\Support\Arr;
 
-class Job {
-    public static function all(): array {
-        return [
-            [
-                'id' => 1,
-                'title' => 'Software Developer',
-                'salary' => '100$',
-            ],
-            [
-                'id' => 2,
-                'title' => 'Frontend Developer',
-                'salary' => '150$',
-            ],
-            [
-                'id' => 3,
-                'title' => 'Backend Developer',
-                'salary' => '200$',
-            ],
-        ];
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class Job extends Model{
+    use HasFactory;
+    protected $table = 'job_listings';
+
+    protected $guarded = [];
+
+    public function employer(){
+        return $this->belongsTo(Employer::class);
     }
 
-    public static function find(int $id): array {
-        $job = Arr::first(static::all(), fn ($job) => $job['id'] == $id);
-
-        if (!$job) {
-            abort(404);
-        }
-
-        return $job;
+    public function tags() {
+        return $this->belongsToMany(Tag::class, foreignPivotKey: 'job_listing_id');
     }
 }
