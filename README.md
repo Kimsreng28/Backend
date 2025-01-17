@@ -23,3 +23,11 @@ root@6638c6507143:/var/www# chmod 664 ./database/database.sqlite
 root@6638c6507143:/var/www# chown www-data:www-data /var/www/database/database.sqlite
 exit
 ```
+
+# setup composer command in docker exec
+
+```
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+    npm install alpinejs
+```
