@@ -29,6 +29,9 @@ app.use("/", express.static(path.join(__dirname, "/public")));
 
 app.use("/", rootRouter);
 
+app.use("/users", require("./routes/userRoutes"));
+app.use("/notes", require("./routes/noteRoutes"));
+
 app.use("*", (req, res) => {
   res.status(404);
   if (req.accepts("html")) {
