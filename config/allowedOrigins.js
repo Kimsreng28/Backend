@@ -1,7 +1,3 @@
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://www.dandrepairshop.com",
-  "https://dandrepairshop.ccom",
-];
+const allowedOrigins = ["http://localhost:3000", "https://technotes.com"];
 
 module.exports = allowedOrigins;
